@@ -11,9 +11,9 @@ const Badge: React.SFC<BadgeProps> = props => {
 };
 
 export const StyledBadge = styled(Badge)`
-  font-size: calc(10px + 1vw);
+  font-size: calc(10px + 0.5vw);
   color: ${themeColor.purple};
-  border: calc(1px + 0.5vw) solid ${themeColor.purple};
+  border: calc(1px + 0.2vw) solid ${themeColor.purple};
   border-radius: calc(10px + 1vw);
   padding: calc(3px + 0.3vw) calc(5px + 0.5vw);
   margin: calc(3px + 0.3vw) calc(5px + 0.5vw);

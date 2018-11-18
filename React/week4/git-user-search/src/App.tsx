@@ -16,6 +16,7 @@ class App extends React.Component {
             <Route exact path="/" component={StyledHomePage} />
             <Route path="/profile/:id" component={StyledProfilePage} />
             <Route path="/profile" render={this.renderRedirect} />
+            <Route path="/about" render={this.renderRedirect} />
           </Switch>
         </div>
       </BrowserRouter>

@@ -7,9 +7,11 @@ type AvatarProps = {
   login?: string | React.ReactNode;
   className?: string;
   onUserClick?: () => void;
+  width?: string;
 };
 
 const Avatar: React.SFC<AvatarProps> = props => {
+  console.log(props.width);
   return (
     <div className={props.className} onClick={props.onUserClick}>
       <img src={props.imgUrl} alt={props.alt} />
@@ -23,7 +25,7 @@ Avatar.defaultProps = {
 };
 
 export const StyledAvatar = styled(Avatar)`
-  width: calc(110px + 6vw);
+  width: ${props => props.width || 'calc(110px + 6vw)'};
   padding: calc(4px + 1vh) calc(4px + 0.9vw);
   cursor: pointer;
 

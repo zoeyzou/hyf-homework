@@ -42,19 +42,29 @@ type ProfilePageState = {
 
 const StyledInfoWrapper = styled('div')`
   flex: 1 1 calc(50% - 10vw);
+  max-width: calc(300px + 10vw);
+  max-height: calc(450px + 15vh);
+  margin: calc(10px + 3vw) calc(5px + 3vw);
 `;
 
 const StyledDetailWrapper = styled('div')`
   flex: 1 1 calc(50% - 10vw);
-  margin: calc(10px + 3vh) auto;
-  padding: calc(5px + 1vh) calc(5px + 3vw);
+  margin: calc(10px + 1vh) calc(2px + 5vw);
+  padding: calc(5px + 2vh) calc(5px + 2vw);
+  max-width: calc(300px + 10vw);
+  max-height: calc(450px + 15vh);
 
   & > h2 {
     text-transform: uppercase;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(20px + 0.5vw);
 
     & > img {
       width: calc(20px + 1.5vw);
+      height: calc(20px + 1.5vw);
+      margin-right: calc(4px + 1vw);
     }
   }
 
@@ -62,6 +72,8 @@ const StyledDetailWrapper = styled('div')`
     display: flex;
     flex-flow: row wrap;
     margin: calc(5px + 0.5vh) calc(5px + 0.5vw);
+    overflow-y: auto;
+    max-height: calc(450px + 8vh);
   }
 
   @media (min-width: ${breakpoint.web}) {
@@ -109,11 +121,12 @@ class ProfilePage extends React.Component<ProfilePageProps, ProfilePageState> {
           <>
             <StyledInfoWrapper>
               <StyledAvatarWithInfo
-                name={user ? user.name : ''}
+                name={user && user.name && user.name}
                 imgUrl={user ? user.avatar_url : ''}
                 forHire={user ? user.hireable : false}
-                location={user ? user.location : ''}
-                bio={user ? user.bio : ''}
+                location={user && user.location && user.location}
+                bio={user && user.bio && user.bio}
+                width="calc(60px + 4vw)"
               />
               {Object.keys(UserInfoRow).map(item => (
                 <StyledInfoRow
@@ -227,5 +240,6 @@ export const StyledProfilePage = styled(ProfilePage)`
 
   @media (min-width: ${breakpoint.web}) {
     flex-flow: row wrap;
+    justify-content: center;
   }
 `;

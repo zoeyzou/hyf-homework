@@ -3,12 +3,13 @@ import { StyledAvatar } from './Avatar';
 import styled, { themeColor } from 'src/themes/themes';
 
 type AvatarWithInfoProps = {
-  name: string;
+  name?: string;
   imgUrl: string;
   forHire: boolean;
   location?: string;
   bio?: string;
   className?: string;
+  width?: string;
 };
 
 const StyledHireTag = styled('div')`
@@ -55,7 +56,7 @@ const AvatarWithInfo: React.SFC<AvatarWithInfoProps> = props => {
   return (
     <div className={props.className}>
       {props.forHire && <StyledHireTag>For hire</StyledHireTag>}
-      <StyledAvatar imgUrl={props.imgUrl} />
+      <StyledAvatar imgUrl={props.imgUrl} width={props.width} />
       <StyledUserDetails>
         <h3>
           {props.name},
@@ -69,13 +70,14 @@ const AvatarWithInfo: React.SFC<AvatarWithInfoProps> = props => {
 };
 
 AvatarWithInfo.defaultProps = {
+  name: 'Mystery Person',
   location: 'Mystery',
   bio: 'This person has nothing to say'
 };
 
 export const StyledAvatarWithInfo = styled(AvatarWithInfo)`
   position: relative;
-  margin: calc(10px + 6vh) calc(5px + 10vw) calc(10px + 3vh);
+  margin: calc(10px + 2vh) calc(5px + 10vw) calc(10px + 2vh);
   display: flex;
   flex-flow: column wrap;
   align-items: center;

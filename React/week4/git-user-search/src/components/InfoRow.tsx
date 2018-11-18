@@ -31,20 +31,24 @@ export const StyledInfoRow = styled(InfoRow)`
   border-bottom: calc(1px + 0.1vw) solid ${themeColor.blue};
   cursor: pointer;
 
+  &:hover > * {
+    transform: scale(1.1);
+    transition: var(--transition);
+  }
+
   & > h3 {
-    flex: 1 1 calc(40%);
+    flex: 1 1 calc(50%);
     text-align: right;
-    padding: 0 calc(5px + 5vw);
   }
 
   & > p {
-    flex: 1 1 calc(40%);
-    padding: 0 calc(5px + 5vw);
+    flex: 1 1 calc(30%);
+    padding: 0 calc(5px + 3vw) 0 calc(5px + 8vw);
   }
 
   & > img {
     position: absolute;
-    right: calc(10px + 10vw);
+    right: calc(15%);
     width: calc(16px + 1vw);
     height: calc(16px + 1vw);
     display: inline-block;
